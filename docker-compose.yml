@@ -1,0 +1,20 @@
+services:
+  server:
+    platform: windows
+    build:
+        context: .\Server
+        dockerfile: Dockerfile
+    container_name: arasinnovator2025
+    ports:
+      - 80:80
+      - 1433:1433
+    
+    # Set mac adress in line below. 
+    # Note: The MAC address must be in Docker's assigned range, use range from 02:42:ac:11:00:00 to 02:42:ac:11:ff:ff
+    # Mac Address must match your License Key you specify in the InnovatorServerConfig.xml
+    # You can request an Aras Innovator Community Edition 2025 license key here: https://aras.com/en/support/licensekeyservice/community-edition?version=14.0.0
+    mac_address: 02:42:AC:11:00:02
+    deploy:
+      resources:
+        limits:
+          memory: 4000M
